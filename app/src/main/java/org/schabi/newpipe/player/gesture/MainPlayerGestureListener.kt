@@ -37,7 +37,7 @@ class MainPlayerGestureListener(
             isMoving = false
             onScrollEnd(event)
         } else if (event.action == MotionEvent.ACTION_UP && player.longPressSpeedingEnabled) {
-            player.playbackSpeed /= playerUi.longPressSpeedingFactor
+            player.playbackSpeed /= player.longPressSpeedingFactor
             player.longPressSpeedingEnabled = false
         }
         return when (event.action) {
