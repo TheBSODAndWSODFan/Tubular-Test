@@ -331,6 +331,7 @@ public final class Player implements PlaybackListener, Listener {
 
         videoResolver = new VideoPlaybackResolver(context, dataSource, getQualityResolver());
         audioResolver = new AudioPlaybackResolver(context, dataSource);
+        longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
 
         currentThumbnailTarget = getCurrentThumbnailTarget();
 
@@ -342,7 +343,6 @@ public final class Player implements PlaybackListener, Listener {
                 new MediaSessionPlayerUi(this),
                 new NotificationPlayerUi(this)
         );
-        longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
     }
 
     private VideoPlaybackResolver.QualityResolver getQualityResolver() {
