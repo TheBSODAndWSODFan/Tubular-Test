@@ -180,6 +180,7 @@ public final class Player implements PlaybackListener, Listener {
     /*//////////////////////////////////////////////////////////////////////////
     // Other constants
     //////////////////////////////////////////////////////////////////////////*/
+    
     public static final int RENDERER_UNAVAILABLE = -1;
     private static final String PICASSO_PLAYER_THUMBNAIL_TAG = "PICASSO_PLAYER_THUMBNAIL_TAG";
 
