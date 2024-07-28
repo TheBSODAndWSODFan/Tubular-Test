@@ -281,6 +281,12 @@ public final class Player implements PlaybackListener, Listener {
     //////////////////////////////////////////////////////////////////////////*/
     //region Constructor
 
+    /*//////////////////////////////////////////////////////////////////////////
+    // Gesture
+    //////////////////////////////////////////////////////////////////////////*/
+    private boolean longPressSpeedingEnabled = false;
+    public float longPressSpeedingFactor = 1.0f;
+
     public Player(@NonNull final PlayerService service) {
         this.service = service;
         context = service;
@@ -325,9 +331,10 @@ public final class Player implements PlaybackListener, Listener {
 
         videoResolver = new VideoPlaybackResolver(context, dataSource, getQualityResolver());
         audioResolver = new AudioPlaybackResolver(context, dataSource);
+        longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
 
         currentThumbnailTarget = getCurrentThumbnailTarget();
-
+        longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
         // The UIs added here should always be present. They will be initialized when the player
         // reaches the initialization step. Make sure the media session ui is before the
         // notification ui in the UIs list, since the notification depends on the media session in
@@ -2623,6 +2630,13 @@ public final class Player implements PlaybackListener, Listener {
                 .findFirst()
                 // No video renderer index with at least one track found: return unavailable index
                 .orElse(RENDERER_UNAVAILABLE);
+    }
+    public void setLongPressSpeedingEnabled(boolean enabled) {
+        longPressSpeedingEnabled = enabled;
+    }
+
+    public boolean getLongPressSpeedingEnabled() {
+        return longPressSpeedingEnabled;
     }
     //endregion
 }
