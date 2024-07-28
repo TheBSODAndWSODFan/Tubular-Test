@@ -281,12 +281,6 @@ public final class Player implements PlaybackListener, Listener {
     //////////////////////////////////////////////////////////////////////////*/
     //region Constructor
 
-    /*//////////////////////////////////////////////////////////////////////////
-    // Gesture
-    //////////////////////////////////////////////////////////////////////////*/
-    private boolean longPressSpeedingEnabled = false;
-    public float longPressSpeedingFactor = 1.0f;
-
     public Player(@NonNull final PlayerService service) {
         this.service = service;
         context = service;
@@ -342,7 +336,6 @@ public final class Player implements PlaybackListener, Listener {
                 new MediaSessionPlayerUi(this),
                 new NotificationPlayerUi(this)
         );
-        longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
     }
 
     private VideoPlaybackResolver.QualityResolver getQualityResolver() {
@@ -2630,9 +2623,6 @@ public final class Player implements PlaybackListener, Listener {
                 .findFirst()
                 // No video renderer index with at least one track found: return unavailable index
                 .orElse(RENDERER_UNAVAILABLE);
-    }
-    public void setLongPressSpeedingEnabled(boolean enabled) {
-        longPressSpeedingEnabled = enabled;
     }
 
     public boolean getLongPressSpeedingEnabled() {
