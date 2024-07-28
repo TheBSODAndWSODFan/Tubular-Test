@@ -2624,9 +2624,5 @@ public final class Player implements PlaybackListener, Listener {
                 // No video renderer index with at least one track found: return unavailable index
                 .orElse(RENDERER_UNAVAILABLE);
     }
-
-    public boolean getLongPressSpeedingEnabled() {
-        return longPressSpeedingEnabled;
-    }
     //endregion
 }
