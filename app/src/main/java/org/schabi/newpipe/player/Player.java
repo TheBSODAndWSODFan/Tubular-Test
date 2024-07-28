@@ -334,7 +334,6 @@ public final class Player implements PlaybackListener, Listener {
         longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
 
         currentThumbnailTarget = getCurrentThumbnailTarget();
-        longPressSpeedingFactor = Float.parseFloat(prefs.getString(context.getString(R.string.speeding_playback_key), "3"));
         // The UIs added here should always be present. They will be initialized when the player
         // reaches the initialization step. Make sure the media session ui is before the
         // notification ui in the UIs list, since the notification depends on the media session in
